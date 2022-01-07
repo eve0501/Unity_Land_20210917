@@ -23,7 +23,9 @@ public class Enemy : MonoBehaviour
     public string parameterAttack = "攻擊觸發";
     [Header("面相目標物件")]
     public Transform target;
-    [Header("攻擊距離"), Range(0, 10)]
+    [Header("攻擊距離"), Range(0, 5)]
+    public float attacDistance = 1.3f;
+    [Header("攻擊冷卻時間"), Range(0, 10)]
     public float attackCD = 2.8f;
     [Header("檢查攻擊區域大小與位移")]
     public Vector3 v3AttackSize = Vector3.one;
@@ -95,7 +97,7 @@ public class Enemy : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
         print("與目標的距離:" + distance);
 
-        //if (distance <= attackDistance)
+        if (distance <= attackDistance)
         {
             rig.velocity = Vector3.zero;
             //Attack();
