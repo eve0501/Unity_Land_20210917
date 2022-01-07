@@ -152,3 +152,4 @@ Received Import Request.
 Start importing Assets/腳本/SenceControl.cs using Guid(8f98c55b9728bf946a4b9e00e6c018f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'beb45136079641579ec732643659d144') in 0.004252 seconds 
   Import took 0.010316 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
