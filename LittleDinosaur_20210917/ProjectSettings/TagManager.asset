@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - "\u5730\u677F"
   - Water
   - UI
   - 
@@ -26,7 +26,7 @@ TagManager:
   - EnemyWeapon
   - BossWeakPoint
   - Bullet
-  - 
+  - "\u5C0F\u5973\u5B69"
   - 
   - 
   - 
