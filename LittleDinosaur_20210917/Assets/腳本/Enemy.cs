@@ -97,7 +97,7 @@ public class Enemy : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
         print("與目標的距離:" + distance);
 
-        if (distance <= attackDistance)
+        //if (distance <= attackDistance)
         {
             rig.velocity = Vector3.zero;
             //Attack();

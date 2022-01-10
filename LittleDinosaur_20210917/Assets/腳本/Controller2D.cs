@@ -132,7 +132,7 @@ public class Controller2D : MonoBehaviour
     private void Jump()
     {
         //如果地板上 並且 按下指定按鍵
-        if (isGrounded && Input.GetKeyDown(keyJump))
+        if (Input.GetButtonDown("Jump"))
         {
             rig.AddForce(new Vector2(0, jump));
         }
