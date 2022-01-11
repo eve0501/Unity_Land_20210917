@@ -50,8 +50,8 @@ public class Controller2D : MonoBehaviour
         //2.決定繪製圖形
         //transform.position 此物件的世界座標
         //transform.TransformDirection() 根據變形元件的區域座標轉換為世界座標
-        Gizmos.DrawSphere(transform.position + 
-            transform.TransformDirection(checkGroundOffset),checkGroundRadius);
+        Gizmos.DrawSphere(transform.position +
+            transform.TransformDirection(checkGroundOffset), checkGroundRadius);
     }
 
     private void Start()
@@ -76,6 +76,7 @@ public class Controller2D : MonoBehaviour
         CheckGround();
         Jump();
     }
+
 
     #region 方法
     ///<summary>
@@ -117,7 +118,7 @@ public class Controller2D : MonoBehaviour
         //碰撞資訊 = 2D.覆蓋圓形(中心點，半徑，圖層)
         Collider2D hit = Physics2D.OverlapCircle(transform.position +
          transform.TransformDirection(checkGroundOffset), checkGroundRadius, canJumpLayer);
-    
+
         //print("碰到物件名稱:" + hit.name);
 
         isGrounded = hit;
@@ -129,15 +130,35 @@ public class Controller2D : MonoBehaviour
     /// <summary>
     /// 跳躍
     /// </summary>
+   // public AudioClip jumpSound;
+
     private void Jump()
+
+
     {
         //如果地板上 並且 按下指定按鍵
         if (Input.GetButtonDown("Jump"))
         {
             rig.AddForce(new Vector2(0, jump));
         }
+
     }
-            #endregion
+   
+
+   
+    
+    
+
+
+    
+    
+
+      
+ 
+
+
+         
+    #endregion
 }
      
 
