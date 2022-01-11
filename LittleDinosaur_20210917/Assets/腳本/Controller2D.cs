@@ -37,6 +37,13 @@ public class Controller2D : MonoBehaviour
     private bool isGrounded;
     #endregion
 
+    private AudioSource audioSource;
+
+    public void PlaySound(AudioClip audioClip)
+    {
+        audioSource.PlayOneShot(audioClip);
+    }
+
     /// <summary>
     /// 繪製圖示
     /// 在UT 繪製輔助用的圖示
@@ -58,6 +65,7 @@ public class Controller2D : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     ///<summary>
     ///Update 約 60 FPS

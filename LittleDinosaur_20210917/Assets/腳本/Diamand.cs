@@ -14,7 +14,7 @@ public class Diamand : MonoBehaviour
         Instantiate(pickE, gameObject.transform.position, Quaternion.identity);
 
         Controller2D move = collision.GetComponent<Controller2D>();
-       // move.PlaySound(audioClip);
+        move.PlaySound(audioClip);
 
         Destroy(gameObject);
     }
