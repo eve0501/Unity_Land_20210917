@@ -8,7 +8,7 @@ using UnityEngine.Events; //引事件 API
 public class HurtSystem : MonoBehaviour
 {
     [Header("血條")]
-    public Image imgHPBar;
+    public Image imgHpBar;
     [Header("血量")]
     public float hp = 100;
     [Header("動畫參數")]
@@ -33,7 +33,7 @@ public class HurtSystem : MonoBehaviour
     public void Hurt(float damage)
     {
         hp -= damage;
-        imgHPBar.fillAmount = hp / hpMax;
+        imgHpBar.fillAmount = hp / hpMax;
         if (hp <= 0) Dead();
     }
 

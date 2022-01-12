@@ -32,11 +32,11 @@ public class Bullet : MonoBehaviour
     {
         print("當前子彈碰撞到：" + collision.gameObject);
 
-        //【碰撞敵人並改變狀態 1/1】呼叫 EnemyGo 這支程式裡面的 Fix() 方法函式
+       
         Enemy enemyGo = collision.gameObject.GetComponent<Enemy>();
         if (enemyGo != null)
         {
-            //enemyGo.Fix();
+           
 
             //【擊中特效 2/2】
             Instantiate(hitEffect, transform.position, Quaternion.identity);

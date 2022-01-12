@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 685783070309287390}
   - component: {fileID: 685783070309287389}
   - component: {fileID: 2122473148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "\u602A\u7269"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,8 +140,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12791014, y: -0.53573537}
-  m_Size: {x: 0.5842676, y: 1.0754089}
+  m_Offset: {x: 0, y: -0.1}
+  m_Size: {x: 0.8, y: 1.3}
   m_Direction: 0
 --- !u!114 &685783070309287389
 MonoBehaviour:
@@ -165,7 +165,7 @@ MonoBehaviour:
   parameterAttack: "\u653B\u64CA\u89F8\u767C"
   target: {fileID: 0}
   attackDistance: 5
-  attackCD: 1.66
+  attackCD: 1
   v3AttackSize: {x: 1, y: 1, z: 1}
   v3AttackOffset: {x: 0, y: 0, z: 0}
   hurtSound: {fileID: 8300000, guid: 616846f4f34d8ff46a48c1e10a555df8, type: 3}

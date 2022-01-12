@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
         ani = GetComponent<Animator>();
         
     }
-    private void OneDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = new Color(1, 0, 0, 0.3f);
         Gizmos.DrawCube(transform.position + transform.TransformDirection(v3TrackOffset), v3TrackSize);
