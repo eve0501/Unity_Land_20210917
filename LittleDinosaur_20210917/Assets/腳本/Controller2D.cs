@@ -38,6 +38,12 @@ public class Controller2D : MonoBehaviour
     #endregion
 
     private AudioSource audioSource;
+    public AudioClip jumpSound;
+    public GameObject projectilePrefab;
+
+    public AudioClip[] HitSounds;
+    
+    private Vector2 lookDirection;
 
     public void PlaySound(AudioClip audioClip)
     {
@@ -66,6 +72,8 @@ public class Controller2D : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+
+       
     }
     ///<summary>
     ///Update ¬ù 60 FPS
@@ -75,6 +83,11 @@ public class Controller2D : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Launch();
+        }
     }
 
 
@@ -83,6 +96,8 @@ public class Controller2D : MonoBehaviour
         Flip();
         CheckGround();
         Jump();
+
+       
     }
 
 
@@ -119,6 +134,13 @@ public class Controller2D : MonoBehaviour
         else if (h > 0)
 
             transform.eulerAngles = Vector3.zero;
+
+       
+        if (!Mathf.Approximately(rig.velocity.x, 0) || !Mathf.Approximately(rig.velocity.y, 0))
+        {
+            lookDirection = rig.velocity;
+            lookDirection.Normalize();
+        }
     }
 
     private void CheckGround()
@@ -149,26 +171,50 @@ public class Controller2D : MonoBehaviour
         {
             rig.AddForce(new Vector2(0, jump));
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PlaySound(jumpSound);
+        }
 
     }
-   
+    /// <summary>
+    /// ¤l¼u
+    /// </summary>
+    /// 
+    private void Launch()
+    {
+        
+        GameObject projectileOnject = Instantiate(projectilePrefab,
+             rig.position, Quaternion.identity);
+        Bullet bullet = projectileOnject.GetComponent<Bullet>();
+        bullet.Launch(lookDirection, 500);
+        ani.SetTrigger("Launch");
 
-   
-    
-    
+        // PlaySound(HitSound);
+        int RandomNum = Random.Range(0, 2);
+       
+        print("RandomNum is :" + RandomNum);
+        audioSource.PlayOneShot(HitSounds[RandomNum]);
+    }
 
 
-    
-    
-
-      
- 
 
 
-         
+
+
+
+
+
+
+
+
+
+
+
+
     #endregion
 }
-     
 
-           
+
+
 

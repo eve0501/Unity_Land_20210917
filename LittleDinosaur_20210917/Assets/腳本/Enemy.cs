@@ -35,6 +35,10 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rig;
     private Animator ani;
     private float timerAttack;
+
+    private AudioSource audioSource;
+    public AudioClip hurtSound;
+
     #endregion
 
     #region
@@ -42,6 +46,7 @@ public class Enemy : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
+        
     }
     private void OneDrawGizmos()
     {
@@ -124,6 +129,21 @@ public class Enemy : MonoBehaviour
 
         }
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            
+            Destroy(gameObject);
+        }
+       
+    }
+    public void PlaySound(AudioClip audioClip)
+    {
+        audioSource.PlayOneShot(audioClip);
+    }
+
+
 }
 
     #endregion
