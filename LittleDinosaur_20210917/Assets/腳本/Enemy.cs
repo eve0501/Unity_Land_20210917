@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     [Header("面相目標物件")]
     public Transform target;
     [Header("攻擊距離"), Range(0, 5)]
-    public float attacDistance = 1.3f;
+    public float attackDistance = 1.3f;
     [Header("攻擊冷卻時間"), Range(0, 10)]
     public float attackCD = 2.8f;
     [Header("檢查攻擊區域大小與位移")]
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
     {
         Collider2D hit = Physics2D.OverlapBox(transform.position + transform.TransformDirection(v3TrackOffset), v3TrackSize, 0, layerTarget);
 
-        if (hit) rig.velocity = new Vector2(- speed, rig.velocity.y); Move();
+        if (hit) rig.velocity = new Vector2(-speed, rig.velocity.y); Move();
     }
 
     ///<summary>
@@ -97,11 +97,33 @@ public class Enemy : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
         print("與目標的距離:" + distance);
 
-        //if (distance <= attackDistance)
+        if (distance <= attackDistance)
         {
             rig.velocity = Vector3.zero;
-            //Attack();
+
+        }
+     
+    }
+
+    [Header("攻擊力"), Range(0, 100)]
+    public float attack = 35;
+    ///<summary>攻擊
+    private void Attack()
+    {
+        if (timerAttack < attackCD)                   //如果計時器小於冷卻時間
+        {
+            timerAttack += Time.deltaTime;           //時間累加 Time.deltaTime 一偵的時間
+        }
+        else
+        {
+            ani.SetTrigger(parameterAttack);         //如果計時器大於等於冷卻時間 就攻擊
+            timerAttack = 0;                         //計時器歸零
+            Collider2D hit = Physics2D.OverlapBox(transform.position + transform.TransformDirection(v3AttackOffset), v3AttackSize, 0, layerTarget);
+            print("攻擊到物件:" + hit.name);
+            hit.GetComponent<HurtSystem>().Hurt(attack);
+
         }
     }
 }
+
     #endregion
