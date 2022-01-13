@@ -169,7 +169,7 @@ MonoBehaviour:
   v3AttackSize: {x: 3, y: 1, z: 1}
   v3AttackOffset: {x: 0, y: -0.5, z: 0}
   hurtSound: {fileID: 8300000, guid: 616846f4f34d8ff46a48c1e10a555df8, type: 3}
-  attack: 35
+  attack: 15
 --- !u!82 &2122473148
 AudioSource:
   m_ObjectHideFlags: 0

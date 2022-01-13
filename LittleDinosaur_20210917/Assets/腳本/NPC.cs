@@ -22,7 +22,22 @@ public class NPC : MonoBehaviour
         {
             print(collision.name);
             print("有東西進入觸發區域");
+            dialogueSystem.StartDialogue(dataDialogue.dialogues);
+            
+
+        }
+
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.name == target)
+        {
+
+            dialogueSystem.StopDialogue();
+
+
         }
     }
+
 
 }

@@ -13,7 +13,7 @@ public class DialogueSystem : MonoBehaviour
     [Header("對話完成圖示")]
     public GameObject goTip;
     [Header("對話按鍵")]
-    public KeyCode keyDialogue = KeyCode.Mouse0;
+    public KeyCode keyDialogue = KeyCode.E;
 
     private void Start()
     {
