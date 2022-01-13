@@ -16,7 +16,10 @@ public class Diamand : MonoBehaviour
         Controller2D move = collision.GetComponent<Controller2D>();
         move.PlaySound(audioClip);
 
+       
+
         Destroy(gameObject);
+        ScoreCode.Score = ScoreCode.Score + 1;
     }
 
    

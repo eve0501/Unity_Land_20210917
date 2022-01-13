@@ -18,8 +18,8 @@ public class Controller2D : MonoBehaviour
     public KeyCode keyJump = KeyCode.Space;
     public LayerMask canJumpLayer;
     [Header("動畫參數 : 走路與跳躍")]
-    public string parameterWalk = "開關走路";
-    public string parameterJump = "開關跳躍";
+    public string parameterWalk = "走路開關";
+    public string parameterJump = "跳躍開關";
     #endregion
 
     #region 欄位 : 私人
@@ -110,7 +110,7 @@ public class Controller2D : MonoBehaviour
     {
         //h值 指定為 輸入.取得軸向(水平軸) - 水平軸代表左右鍵與 AD
         float h = Input.GetAxis("Horizontal");
-        print("玩家左右按鍵:" + h);
+        //print("玩家左右按鍵:" + h);
 
         //剛體元件.加速器 = 二維向量(h 值 * 移動速度 ,剛體.加速度垂直) ;
         rig.velocity = new Vector2(h * speed, rig.velocity.y);
@@ -167,7 +167,7 @@ public class Controller2D : MonoBehaviour
     {
      
         //如果地板上 並且 按下指定按鍵
-        if (Input.GetButtonDown("Jump"))
+        if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rig.AddForce(new Vector2(0, jump));
            
