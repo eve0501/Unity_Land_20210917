@@ -19,6 +19,14 @@ public class HurtSystem : MonoBehaviour
     private float hpMax;
     private Animator ani;
 
+    private AudioSource audioSource;
+    public AudioClip PlayerHurt;
+
+    public void PlaySound(AudioClip audioClip)
+    {
+        audioSource.PlayOneShot(audioClip);
+    }
+
     //喚醒事件 : 在 Start之前執行一次
     private void Awake()
     {
@@ -35,6 +43,13 @@ public class HurtSystem : MonoBehaviour
         hp -= damage;
         imgHpBar.fillAmount = hp / hpMax;
         if (hp <= 0) Dead();
+
+        audioSource = GetComponent<AudioSource>();
+       
+        PlaySound(PlayerHurt);
+
+       
+       
     }
 
     private void Dead()

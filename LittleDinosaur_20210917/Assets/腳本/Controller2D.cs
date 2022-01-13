@@ -160,16 +160,17 @@ public class Controller2D : MonoBehaviour
     /// <summary>
     /// 跳躍
     /// </summary>
-   // public AudioClip jumpSound;
 
     private void Jump()
 
 
     {
+     
         //如果地板上 並且 按下指定按鍵
         if (Input.GetButtonDown("Jump"))
         {
             rig.AddForce(new Vector2(0, jump));
+           
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {

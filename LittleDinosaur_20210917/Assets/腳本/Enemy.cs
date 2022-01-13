@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
     {
         Collider2D hit = Physics2D.OverlapBox(transform.position + transform.TransformDirection(v3TrackOffset), v3TrackSize, 0, layerTarget);
 
-        if (hit) rig.velocity = new Vector2(-speed, rig.velocity.y); Move();
+        if (hit) Move();
     }
 
     ///<summary>
@@ -79,6 +79,8 @@ public class Enemy : MonoBehaviour
     ///</summary>
     private void Move()
     {
+        rig.velocity = new Vector2(-speed, rig.velocity.y);
+        ani.SetBool(parameterWalk, true);
         //三原運算子語法 : 布林值 ? 當布林值 為 ture : 當布林值 為 false ;
         //如果 目標的 x 小於 敵人的 x 就代表在左邊 角度 0
         //如果 目標的 x 大於 敵人的 x 就代表在右邊 角度 180
@@ -99,13 +101,13 @@ public class Enemy : MonoBehaviour
         ani.SetBool(parameterWalk, true);
 
         //距離 = 三維向量.距離(A點，B點)
-        float distance = Vector3.Distance(target.position, transform.position);
+        float distance = Vector3.Distance(transform.position, target.position);
         print("與目標的距離:" + distance);
 
         if (distance <= attackDistance)
         {
             rig.velocity = Vector3.zero;
-
+            Attack();
         }
      
     }
